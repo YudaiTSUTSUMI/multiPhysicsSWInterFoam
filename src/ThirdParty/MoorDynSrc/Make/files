@@ -1,0 +1,22 @@
+Body.cpp
+Point.cpp
+Instance.cpp
+IO.cpp
+Line.cpp
+Log.cpp
+Misc.cpp
+MoorDyn2.cpp
+MoorDyn.cpp
+Rod.cpp
+State.cpp
+Time.cpp
+Waves.cpp
+kiss_fft.cpp
+kiss_fftr.cpp
+Seafloor.cpp
+Waves/WaveSpectrum.cpp
+Waves/SpectrumKin.cpp
+Waves/WaveOptions.cpp
+Waves/WaveGrid.cpp
+
+LIB = $(FOAM_USER_LIBBIN)/libmoordyn
