@@ -1,0 +1,10 @@
+bulletMotion/bulletMotion/bulletMotion.C
+bulletMotion/bulletMotionSolver/bulletMotionSolver.C
+
+cellCellStencil/modifiedInverseDistance/modifiedInverseDistanceCellCellStencil.C
+
+oversetFvMesh/bulletOversetFvMesh/bulletOversetFvMesh.C
+oversetFvMesh/bulletMotionSolverListFvMesh/bulletMotionSolverListFvMesh.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libbulletOverset
