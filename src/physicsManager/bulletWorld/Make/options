@@ -1,0 +1,22 @@
+LIB_USER_SRC = $(WM_PROJECT_USER_DIR)/src
+
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/surfMesh/lnInclude \
+    -I../../ThirdParty/BulletSrc \
+    -I../../ThirdParty/BulletSrc/LinearMath/lnInclude \
+    -I../../ThirdParty/BulletSrc/BulletCollision/lnInclude \
+    -I../../ThirdParty/BulletSrc/BulletDynamics/lnInclude \
+    -I../../csvFunctions/lnInclude     
+
+EXE_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lsurfMesh \
+    -L$(FOAM_USER_LIBBIN) \
+    -lLinearMath \
+    -lBulletCollision \
+    -lBulletDynamics \
+    -lcsvFunctions
+    

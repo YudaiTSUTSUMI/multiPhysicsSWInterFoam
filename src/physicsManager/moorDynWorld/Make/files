@@ -1,0 +1,3 @@
+moorDynWorld.C
+
+LIB = $(FOAM_USER_LIBBIN)/libmoorDynWorld

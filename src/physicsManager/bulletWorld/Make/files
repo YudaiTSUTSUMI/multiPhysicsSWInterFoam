@@ -1,0 +1,4 @@
+bulletWorld.C
+bulletBody.C
+
+LIB = $(FOAM_USER_LIBBIN)/libbulletWorld
