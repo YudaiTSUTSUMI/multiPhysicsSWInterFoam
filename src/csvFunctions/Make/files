@@ -1,0 +1,4 @@
+csvArray.C
+arrayToField.C
+
+LIB = $(FOAM_USER_LIBBIN)/libcsvFunctions

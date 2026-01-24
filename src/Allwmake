@@ -1,0 +1,47 @@
+#!/bin/bash
+# Allwmake - build all components
+
+wmake $* csvFunctions
+
+wmake $* SWWaveSource
+
+wmake $* regionConnector
+
+wmake $* SWRiemannSolver
+
+wmake $* bulletOverset
+
+wmake $* ThirdParty/BulletSrc/LinearMath
+wmake $* ThirdParty/BulletSrc/BulletCollision
+wmake $* ThirdParty/BulletSrc/BulletDynamics
+
+if [ -d "ThirdParty/MoorDynSrc" ]; then
+    contents=$(find "ThirdParty/MoorDynSrc" -mindepth 1 ! -path "ThirdParty/MoorDynSrc/Make*" -print -quit)
+
+    if [ -z "$contents" ]; then
+        pushd ThirdParty/MoorDynSrc > /dev/null
+
+        git init
+        git remote add origin https://github.com/FloatingArrayDesign/MoorDyn.git
+        git config core.sparseCheckout true
+        echo "source" >> .git/info/sparse-checkout
+        git pull origin master
+
+        # Move contents of 'source/' into current directory, then remove 'source/'
+        mv source/* ./
+        rm -r source
+
+        popd > /dev/null
+    #else
+        #echo "Files/directories other than 'Make' found:"
+        #find "ThirdParty/MoorDynSrc" -mindepth 1 ! -path "ThirdParty/MoorDynSrc/Make*" -exec ls -ld {} \;
+    fi
+fi
+
+
+wmake $* ThirdParty/MoorDynSrc
+
+wmake $* physicsManager/bulletWorld
+wmake $* physicsManager/moorDynWorld
+
+wmake $* physicsManager

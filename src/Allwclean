@@ -1,0 +1,22 @@
+#!/bin/bash
+
+wclean $* csvFunctions
+
+wclean $* SWWaveSource
+
+wclean $* regionConnector
+
+wclean $* HLLCS
+
+wclean $* bulletOverset
+
+wclean $* ThirdParty/BulletSrc/LinearMath
+wclean $* ThirdParty/BulletSrc/BulletCollision
+wclean $* ThirdParty/BulletSrc/BulletDynamics
+
+wclean $* ThirdParty/MoorDynSrc
+
+wclean $* physicsManager/bulletWorld
+wclean $* physicsManager/moorDynWorld
+
+wclean $* physicsManager
