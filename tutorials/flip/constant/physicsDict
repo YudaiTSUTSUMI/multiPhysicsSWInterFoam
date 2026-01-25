@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-frictionMode  average;
+frictionMode  average; //minimum,average, default: multiply 
 
 nIterBullet   20;
 
