@@ -54,7 +54,7 @@ objects
         Lz              0.15;
 
         // Density of the solid
-        rhoSolid        1e-6;//0.00000001;//200;
+        rhoSolid        1e-6;
         
         restitution     0.0;
         friction      0.5;
@@ -70,20 +70,17 @@ objects
              /*planeConstraint
              {
                bulletMotionConstraint   plane;
-               normal                   (0 0 0);
-               //normal                   (1 0 1);
+               normal                   (1 0 1);
              }*/
              
              /*axisConstraint
              {
                bulletMotionConstraint   axis;
-               axis                              (0 0 0);
-               //axis                              (0 1 0);
+               axis                              (0 1 0);
              }*/  
         }
         
         writeVTK    true;
-        triSurface  turbine.stl;
     }
 }
 
@@ -92,20 +89,9 @@ joints
     /*hinge1
     {
         type hingeSelf;
-        obj cylinder;
-        pivot (0 0 0); //local value
+        obj box;
+        pivot (0 0 0);
         axis (0 1 0);
-    }*/
-    
-    /*hinge2
-    {
-        type          hingePair;
-        objA         box;
-        objB         box2;
-        pivotA        (0 0 0);     
-        pivotB        (0 0 -0.135);        
-        axisA         (0 1 0);       
-        axisB         (0 1 0);
     }*/
 }
 
