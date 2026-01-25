@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh       bulletOversetFvMesh;
+
+solvers
+{
+    box
+    {
+        solver          bulletMotion;
+                
+        mode            innerMass;
+        
+        objName         box;
+        
+        updateVOF       true;
+
+        bulletMotionCoeffs
+        {
+            patches         (box);
+            innerDistance   100.0;
+            outerDistance   101.0;
+        }
+    }
+}
+
+// ************************************************************************* //

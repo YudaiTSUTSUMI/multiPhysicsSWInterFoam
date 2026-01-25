@@ -1,0 +1,118 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      physicsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+frictionMode  average;
+
+nIterBullet   20;
+
+//implicitEccentric true;
+
+objects
+{
+    floor
+    {
+        objName         floor;
+        objShape        box;
+        
+        Lx      100;
+        Ly      100;
+        Lz      100;
+        
+        position    (0 0 -50.1); 
+        
+        rhoSolid        0; // staticBody
+        
+        restitution     0.0;
+        friction      0.5;
+        
+        writeVTK    true;
+    }
+    
+    box
+    {
+        objName         box;
+        objShape        box;
+
+        position    (0 0 0.125);
+        
+        // Cuboid dimensions
+        Lx              0.05;
+        Ly              0.05;
+        Lz              0.15;
+
+        // Density of the solid
+        rhoSolid        1e-6;//0.00000001;//200;
+        
+        restitution     0.0;
+        friction      0.5;
+        
+        fluidForceRelaxation 0.6;
+        fluidForceDamping    1;//0.9;
+        
+        initialVelocity     (0 0 2);
+        initialAngularVelocity   (0 21.98 0);
+
+        constraints
+        {
+             /*planeConstraint
+             {
+               bulletMotionConstraint   plane;
+               normal                   (0 0 0);
+               //normal                   (1 0 1);
+             }*/
+             
+             /*axisConstraint
+             {
+               bulletMotionConstraint   axis;
+               axis                              (0 0 0);
+               //axis                              (0 1 0);
+             }*/  
+        }
+        
+        writeVTK    true;
+        triSurface  turbine.stl;
+    }
+}
+
+joints
+{
+    /*hinge1
+    {
+        type hingeSelf;
+        obj cylinder;
+        pivot (0 0 0); //local value
+        axis (0 1 0);
+    }*/
+    
+    /*hinge2
+    {
+        type          hingePair;
+        objA         box;
+        objB         box2;
+        pivotA        (0 0 0);     
+        pivotB        (0 0 -0.135);        
+        axisA         (0 1 0);       
+        axisB         (0 1 0);
+    }*/
+}
+
+
+MoorDyn
+{
+}
+
+
+// ************************************************************************* //
