@@ -1,0 +1,18 @@
+#!/bin/bash
+
+NP=4
+
+mkdir 0
+
+blockMesh -region box
+
+rm -fr 0
+cp -r 0.org 0
+
+setFields -region box
+
+decomposePar -allRegions
+
+mpirun -np $NP overInterDyMFoam -parallel
+
+#reconstructPar -allRegions
