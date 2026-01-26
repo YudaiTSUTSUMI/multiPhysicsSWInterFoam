@@ -3,7 +3,7 @@
 NP=10
 
 (cd components && ./prepareMesh)
-(cd runCase && ./run.pre && decomposePar -allRegions)
+(cd runCase && ./run.pre && rm -rf processor* && decomposePar -allRegions)
 (cd runCase && mpirun -np $NP overInterDyMFoam -parallel)
 
 #reconstructPar -allRegions
