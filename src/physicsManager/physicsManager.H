@@ -149,7 +149,17 @@ struct objectData
     {
         return getFromMaster<tensor>([&]() { return bulletBody_->Q0(); });
     }
+
+    vector getRotationVector()
+    {
+        return getFromMaster<vector>([&]() { return bulletBody_->rotVec(); });
+    }
     
+    vector getRotationVector0()
+    {
+        return getFromMaster<vector>([&]() { return bulletBody_->rotVec0(); });
+    }
+        
     vector getVelocity()
     {
         return getFromMaster<vector>([&]() { return bulletBody_->ev(); });
