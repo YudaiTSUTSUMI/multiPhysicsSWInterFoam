@@ -743,31 +743,7 @@ void Foam::physicsManager::writeCSV()
         const scalar time = runTime_.value();
         const vector pos = objectData.getPosition();
         const vector CoM = objectData.getCoMWorld();
-
-        const tensor Q = objectData.getRotation();
-        scalar rolX, rolY, rolZ;
-        if (mag(Q.xx()) != 1.0) 
-        {
-            rolY = -asin(Q.xz());
-            rolX = atan2(Q.yz()/cos(rolY), Q.zz()/cos(rolY));
-            rolZ = atan2(Q.xy()/cos(rolY), Q.xx()/cos(rolY));
-        } 
-        else 
-        {
-            rolZ = 0;
-            if (Q.xz() == -1)
-            {
-                rolY = M_PI / 2;
-                rolX = rolZ + atan2(Q.yx(), Q.yz());
-            } 
-            else 
-            {
-                rolY = -M_PI / 2;
-                rolX = -rolZ + atan2(-Q.yx(), -Q.yz());
-            }
-        }
-        
-        const vector rol = vector(rolX * 180.0 / M_PI,rolY * 180.0 / M_PI,rolZ * 180.0 / M_PI);   
+        const vector rol = objectData.getRotationVector();  
         
         const vector vel = objectData.getVelocity();
         const vector omega = objectData.getAngularVelocity();
