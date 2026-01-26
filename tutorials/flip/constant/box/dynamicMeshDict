@@ -19,9 +19,7 @@ dynamicFvMesh       bulletOversetFvMesh;
 solvers
 {
     box
-    {
-        solver          bulletMotion;
-                
+    {                
         mode            innerMass;
         
         objName         box;
