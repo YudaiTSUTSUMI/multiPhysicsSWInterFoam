@@ -20,6 +20,8 @@ nIterBullet   10;
 
 //implicitEccentric true;
 
+//nOuterCorrectors 3; //when using innerForce option
+
 objects
 {    
     cylinder
@@ -38,7 +40,7 @@ objects
         restitution     0.0;
         friction      0.5;
         
-        fluidForceRelaxation 0.6;
+        fluidForceRelaxation 0.5;
         fluidForceDamping    1;
         
         //initialVelocity     (0 0 0);
