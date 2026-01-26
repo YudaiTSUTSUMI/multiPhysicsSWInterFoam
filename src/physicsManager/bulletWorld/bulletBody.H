@@ -28,7 +28,8 @@ class bulletBody
 
     bool writeArbitraryVTK_;
 
-    Foam::triSurface triSurface_;
+    PtrList<Foam::triSurface> triSurfaces_;
+    wordList triSurfaceNames_;
     
     //- Data for Motion//- Current position of the centre of mass of the body
         vector initialP_;
@@ -112,7 +113,8 @@ public:
 
     inline const bool& writeArbitraryVTK() const { return writeArbitraryVTK_; }
 
-    inline const Foam::triSurface& triSurface() const { return triSurface_; }
+    inline const PtrList<Foam::triSurface>& triSurfaces() const { return triSurfaces_; }
+    inline const wordList& triSurfaceNames() const { return triSurfaceNames_; }
 
     inline const vector& initialP() const { return initialP_; }
 
@@ -175,7 +177,8 @@ public:
 
     inline bool& writeArbitraryVTK() { return writeArbitraryVTK_; }
 
-    inline Foam::triSurface& triSurface() { return triSurface_; }
+    inline PtrList<Foam::triSurface>& triSurfaces() { return triSurfaces_; }
+    inline wordList& triSurfaceNames() { return triSurfaceNames_; }
 
     inline bool& dynamic() { return dynamic_; }
 
