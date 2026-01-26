@@ -572,10 +572,28 @@ void Foam::bulletWorld::addBulletBodies
             {
                 btBody.writeArbitraryVTK() = true;
 
-                const word triSurfaceName = dict.get<word>("triSurface");
-                const word triPath = "constant/triSurface/" + triSurfaceName;
+                const wordList triSurfaceNames(dict.lookup("triSurface"));
+    
+                btBody.triSurfaces().setSize(triSurfaceNames.size());
+                
+                btBody.triSurfaceNames().setSize(triSurfaceNames.size());
+                forAll(triSurfaceNames, i)
+                {
+                    btBody.triSurfaceNames()[i] = triSurfaceNames[i].lessExt();
+                }
 
-                btBody.triSurface() = Foam::triSurface(triPath);
+                forAll(triSurfaceNames, i)
+                {
+                    const fileName triPath = "constant/triSurface" / triSurfaceNames[i];
+                    
+                    Info << "Loading surface[" << i << "]: " << triPath << endl;
+                    
+                    btBody.triSurfaces().set
+                    (
+                        i,
+                        new triSurface(triPath)
+                    );
+                }
             }
         }
     }
@@ -1252,27 +1270,31 @@ void Foam::bulletWorld::writeArbitraryVTK
     const int& outputCounter
 )
 {
-    word saveName = "Bullet/" + objName + "/" + objName + "_" + std::to_string(outputCounter);
-
     bulletBody& btBody = bulletBodies_[objI];
-   
-    Foam::triSurface tri = btBody.triSurface();    
-    pointField points = tri.points();
 
-    const vector P = btBody.P();              
-    const vector initialP = btBody.initialP();
-    const tensor Q = btBody.Q();
-
-    forAll(points, i)
+    forAll(btBody.triSurfaces(), i)
     {
-        vector relativePos = points[i] - initialP;
+        fileName saveDir = "Bullet"/objName;
+        word saveName = btBody.triSurfaceNames()[i] + "_" + Foam::name(outputCounter);
+        fileName fullPath = saveDir / saveName + ".vtk";
 
-        points[i] = P + (Q & relativePos);
+        Foam::triSurface tri = btBody.triSurfaces()[i]; 
+        pointField points = tri.points();
+
+        const vector P = btBody.P();              
+        const vector initialP = btBody.initialP();
+        const tensor Q = btBody.Q();
+
+        forAll(points, j)
+        {
+            vector relativePos = points[j] - initialP;
+            points[j] = P + (Q & relativePos);
+        }
+
+        tri.movePoints(points);
+
+        tri.write(fullPath);
     }
-
-    tri.movePoints(points);
-
-    tri.write(fileName(saveName + ".vtk"));
 }
 
 // ************************************************************************* //
