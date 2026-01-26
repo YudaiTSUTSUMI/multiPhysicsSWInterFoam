@@ -126,6 +126,20 @@ public:
     
     inline const btQuaternion& q() const { return q_; }
     inline const btQuaternion& q0() const { return q0_; }
+
+    inline vector rotVec() const
+    {
+        btScalar angle = q_.getAngle();
+        btVector3 axis = q_.getAxis();
+        return vector(axis.x(), axis.y(), axis.z()) * angle;
+    }
+
+    inline vector rotVec0() const
+    {
+        btScalar angle = q0_.getAngle();
+        btVector3 axis = q0_.getAxis();
+        return vector(axis.x(), axis.y(), axis.z()) * angle;
+    }
     
     inline const vector& localCoM() const { return localCoM_; }
     inline const vector& localCoM0() const { return localCoM0_; }
