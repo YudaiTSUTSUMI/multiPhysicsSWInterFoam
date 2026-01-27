@@ -38,7 +38,7 @@ hU_(hU)
         
         word csvName = d.get<word>("waveSource");
 
-        fileName csvDir = waveSourceDict.path() / csvObj.name();
+        fileName csvDir = waveSourceDict.path() / csvName;
 
         csvArray csv(csvDir, true);
 
