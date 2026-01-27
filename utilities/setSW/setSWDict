@@ -14,8 +14,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-initialh0    0;
+mode dict; //triSurface
 
+initialh0    0;
 
 slope
 {
@@ -38,7 +39,10 @@ slope
     }
 }
 
-depth     0.6;
+//triSurface topo.stl;
+//checkLength 100; //default: 100
+
+depth     0.0;
 
 
 // ************************************************************************* //
