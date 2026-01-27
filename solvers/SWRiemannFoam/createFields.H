@@ -32,14 +32,6 @@ dimensionedScalar hDry
     SWProperties.lookupOrDefault("hDry", SMALL)
 );
 
-dimensionedScalar UMax
-(
-    "UMax",
-    dimVelocity,
-    SWProperties.lookupOrDefault("UMax", 50)
-);
-
-
 volScalarField h
 (
     IOobject
