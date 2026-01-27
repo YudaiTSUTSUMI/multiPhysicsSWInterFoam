@@ -1,0 +1,18 @@
+#!/bin/bash
+
+NP=4
+
+mkdir 0
+
+blockMesh
+
+rm -fr 0
+cp -r 0.org 0
+
+setSW
+
+decomposePar
+
+mpirun -np $NP SWRiemannFoam -parallel
+
+#reconstructPar
