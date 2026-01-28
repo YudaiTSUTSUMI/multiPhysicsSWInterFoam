@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-limitFrontVelocity true;
-hDry    0.0001;
+limitFrontVelocity true; //default: false
+hDry    0.0001; //default: SMALL
 
 // ************************************************************************* //
