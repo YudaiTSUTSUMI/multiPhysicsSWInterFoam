@@ -1,0 +1,5 @@
+#!/bin/bash
+
+wclean $* SWRiemannFoam
+wclean $* overInterDyMFoamPlus
+wclean $* multiPhysicsSWInterFoam
