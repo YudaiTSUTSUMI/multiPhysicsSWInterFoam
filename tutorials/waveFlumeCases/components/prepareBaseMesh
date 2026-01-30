@@ -1,0 +1,4 @@
+#!/bin/sh
+
+(cd flume2D && blockMesh)
+(cd wavePaddle && blockMesh)
