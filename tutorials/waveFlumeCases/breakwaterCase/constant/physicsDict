@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      physicsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+frictionMode  average;
+
+nIterBullet   20;
+
+predictMooringForces true; //default: true
+
+objects
+{    
+    FBW
+    {
+        objName         FBW;
+        objShape        box;
+
+        position    (-1 0 0.5);
+        
+        // Cuboid dimensions
+        Lx              0.3;
+        Ly              0.5;
+        Lz              0.2;
+
+        // Density of the solid
+        rhoSolid        500;
+        
+        restitution     0.0;
+        friction      0.5;
+        
+        fluidForceRelaxation 0.6;
+        fluidForceDamping    1;
+
+        constraints
+        {            
+        }
+        
+        writeVTK    true;
+    }
+    
+}
+
+joints
+{
+}
+
+
+MoorDyn
+{
+    file    lines.txt;
+    
+    moorings
+    {
+        mooring1
+        {
+            obj FBW;
+            pointIDs (1 2 3 4);
+        }
+        
+    }
+}
+
+
+// ************************************************************************* //
