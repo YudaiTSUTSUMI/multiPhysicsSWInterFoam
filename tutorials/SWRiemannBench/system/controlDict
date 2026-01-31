@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     SWReimannFoam;//
+application     SWReimannFoam;
 
 startFrom       latestTime;
 
@@ -24,7 +24,7 @@ stopAt          endTime;
 
 endTime         22.5;
 
-deltaT          0.01;
+deltaT          0.002;
 
 writeControl    adjustable;//runTime
 
@@ -44,7 +44,7 @@ timePrecision   6;
 
 runTimeModifiable true;
 
-adjustTimeStep  on;
+adjustTimeStep  off;//on;
 
 maxCo           0.5;
 
