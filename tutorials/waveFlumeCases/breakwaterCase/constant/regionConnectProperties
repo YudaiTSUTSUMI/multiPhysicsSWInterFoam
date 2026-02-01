@@ -37,7 +37,7 @@ SWVOFConnectors
 		VOFPatch   inletOutlet;		
 	}
 	
-	connect2
+	connect3
 	{
 		mode fixed;
 		
