@@ -558,7 +558,7 @@ void Foam::bulletWorld::addBulletBodies
             btBody.shape() = "sphere";
             btBody.name() = objName;
         }
-        else if(shape == "")
+        else if(shape == "cylinder")
         {
             addCylinderBody(dict, collisionShapes_, btBody);
             btBody.shape() = "cylinder";
