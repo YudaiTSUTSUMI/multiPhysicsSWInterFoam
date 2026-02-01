@@ -1,7 +1,7 @@
 fvMesh& mesh = SWRegions[i];
 
 bool limitFrontVelocity = limitFrontVelocitySW[i];
-dimensionedScalar hDry = hDrySW[i];
+dimensionedScalar& hDry = hDrySW[i];
 
 volScalarField& h = hSW[i];
 volScalarField& h0 = h0SW[i];
