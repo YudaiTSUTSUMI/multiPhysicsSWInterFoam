@@ -14,16 +14,16 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SWFluidConnectors
+SWVOFConnectors
 {
 	connect1
 	{
 		mode fixed;
 		
 		SWRegion       flume2D;
-		fluidRegion    wavePaddle;
+		VOFRegion    wavePaddle;
 		
-		fluidPatch   outlet;		
+		VOFPatch   outlet;		
 	}
 }
 
