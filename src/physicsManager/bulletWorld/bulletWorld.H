@@ -62,7 +62,7 @@ class bulletWorld
         bulletBody& btBody
     );
     
-    void addCylinderZBody
+    void addCylinderBody
     (
         const dictionary& dict,
         btAlignedObjectArray<btCollisionShape*> collisionShapes,
@@ -241,7 +241,7 @@ public:
         const int& outputCounter
     );
     
-    void writeCylinderZVTK
+    void writeCylinderVTK
     (
         const word& objName,
         const int& objI,
