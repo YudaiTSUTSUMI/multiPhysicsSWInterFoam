@@ -785,9 +785,17 @@ void Foam::SWVOFFixedConnector::updateConnectBoundary()
                 hUTrans[fCelli] = hUGlobal[globalID];
             }
         }
-        
+
+        labelList nbrType;
         scalarField nbrH;
         vectorField nbrHU;
+
+        syncTools::swapBoundaryCellList
+        (
+            SWMesh,
+            SWCellType,
+            nbrType
+        );
         
         syncTools::swapBoundaryCellList
         (
@@ -812,7 +820,7 @@ void Foam::SWVOFFixedConnector::updateConnectBoundary()
             
             if (patch.coupled())
             {
-                if(SWData.cellType_[fCelli] == 2)
+                if(SWData.cellType_[fCelli] == 2 && nbrType[faceI-SWMesh.nInternalFaces()] == 1)
                 {
                     SWData.h_->internalFieldRef()[fCelli] = nbrH[faceI-SWMesh.nInternalFaces()];
                     SWData.hU_->internalFieldRef()[fCelli] = nbrHU[faceI-SWMesh.nInternalFaces()];
