@@ -601,8 +601,8 @@ void Foam::SWVOFArbitraryConnector::updateConnectBoundary()
         surfaceScalarField& hBound = *(SWData.hBound_);
         surfaceVectorField& hUBound = *(SWData.hUBound_);
 
-        labelList cellType = SWData.cellType_;
-        labelList faceType = SWData.faceType_;
+        const labelList& cellType = SWData.cellType_;
+        const labelList& faceType = SWData.faceType_;
         
         scalarField hLocal = scalarField(SWData.localFaceIDs_.size(), 0.0);
         vectorField hULocal = vectorField(SWData.localFaceIDs_.size(), vector::zero);
@@ -782,9 +782,17 @@ void Foam::SWVOFArbitraryConnector::updateConnectBoundary()
                 }
             }
         }
-        
+
+        labelList nbrType;
         scalarField nbrH;
         vectorField nbrHU;
+
+        syncTools::swapBoundaryCellList
+        (
+            SWMesh,
+            cellType,
+            nbrType
+        );
         
         syncTools::swapBoundaryCellList
         (
@@ -809,7 +817,7 @@ void Foam::SWVOFArbitraryConnector::updateConnectBoundary()
             
             if (patch.coupled())
             {
-                if(cellType[fCelli] == 2)
+                if(cellType[fCelli] == 2 && nbrType[faceI-SWMesh.nInternalFaces()] == 1)
                 {
                     SWData.h_->internalFieldRef()[fCelli] = nbrH[faceI-SWMesh.nInternalFaces()];
                     SWData.hU_->internalFieldRef()[fCelli] = nbrHU[faceI-SWMesh.nInternalFaces()];
