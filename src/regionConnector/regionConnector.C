@@ -142,7 +142,7 @@ void Foam::regionConnectors::updateSWRegionData
             {
                 if(SWCellType[celli] > 0)
                 {
-                    cellType[celli] = SWCellType[celli];
+                    cellType.internalFieldRef()[celli] = SWCellType[celli];
                 }
             }
             
@@ -152,7 +152,7 @@ void Foam::regionConnectors::updateSWRegionData
                 {
                     if(facei < SWMesh.nInternalFaces())
                     {
-                        faceType[facei] = SWCellType[facei];
+                        faceType.internalFieldRef()[facei] = SWFaceType[facei];
                     }
                     else
                     {
@@ -177,7 +177,7 @@ void Foam::regionConnectors::updateSWRegionData
             {
                 if(SWCellType[celli] > 0)
                 {
-                    cellType[celli] = SWCellType[celli];
+                    cellType.internalFieldRef()[celli] = SWCellType[celli];
                 }
             }
             
@@ -187,7 +187,7 @@ void Foam::regionConnectors::updateSWRegionData
                 {
                     if(facei < SWMesh.nInternalFaces())
                     {
-                        faceType[facei] = SWCellType[facei];
+                        faceType.internalFieldRef()[facei] = SWFaceType[facei];
                     }
                     else
                     {
