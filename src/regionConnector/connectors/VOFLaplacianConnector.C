@@ -67,7 +67,7 @@ templateList Foam::VOFLaplacianConnector::generateGlobalList
     return globalList;
 }
 
-Foam::labelList Foam::VOFLaplacianConnector::generateGlobalIDs
+Foam::labelList Foam::SWVOFFixedConnector::generateGlobalIDs
 (
     label localSize
 )
@@ -75,15 +75,20 @@ Foam::labelList Foam::VOFLaplacianConnector::generateGlobalIDs
     label nProcs = Pstream::nProcs();
     label myRank = Pstream::myProcNo();
 
-    List<label> allLocalSizes(nProcs, 0);
-    allLocalSizes[myRank] = localSize;
+    List<labelList> allLocalSizes(nProcs);
+    forAll(allLocalSizes, i)
+    {
+        allLocalSizes[i] = labelList(0);
+    }
+    allLocalSizes[myRank] = labelList(1, localSize);
+
     Pstream::gatherList(allLocalSizes);
     Pstream::scatterList(allLocalSizes);
 
     List<label> offset(nProcs, 0);
     for (label i = 1; i < nProcs; ++i)
     {
-        offset[i] = offset[i-1] + allLocalSizes[i-1];
+        offset[i] = offset[i-1] + allLocalSizes[i-1][0];
     }
 
     label start = offset[myRank];
