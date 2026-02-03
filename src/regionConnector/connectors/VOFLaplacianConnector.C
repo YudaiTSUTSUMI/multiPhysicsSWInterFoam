@@ -67,7 +67,7 @@ templateList Foam::VOFLaplacianConnector::generateGlobalList
     return globalList;
 }
 
-Foam::labelList Foam::SWVOFFixedConnector::generateGlobalIDs
+Foam::labelList Foam::VOFLaplacianConnector::generateGlobalIDs
 (
     label localSize
 )
