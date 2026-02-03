@@ -43,7 +43,7 @@ templateList Foam::SWVOFArbitraryConnector::generateGlobalList
 }
 
 
-Foam::labelList Foam::SWVOFFixedConnector::generateGlobalIDs
+Foam::labelList Foam::SWVOFArbitraryConnector::generateGlobalIDs
 (
     label localSize
 )
