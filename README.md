@@ -20,20 +20,20 @@ Murillo, J. and García-Navarro, P.,
 https://www.sciencedirect.com/science/article/pii/S0021999112003464
 
 <p align="center">
-  <img src="docs/images/SWRiemann.png" width="45%">
-  <img src="docs/images/tsunamiNankaiTrough.png" width="45%">
+  <img src="docs/images/SWRiemann.png" width="35%">
+  <img src="docs/images/tsunamiNankaiTrough.png" width="35%">
 </p>
 
 ## overInterDymFoam+
 overInterDyMFoam+ is a solver
 
 <p align="center">
-  <img src="docs/images/FOWT.png" width="75%">
+  <img src="docs/images/FOWT.png" width="65%">
 </p>
 
 ## multiPhysicsSWInterFoam
 multiPhysicsSWInterFoam is a solver
 
 <p align="center">
-  <img src="docs/images/waveFlumes.png" width="75%">
+  <img src="docs/images/waveFlumes.png" width="100%">
 </p>
