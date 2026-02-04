@@ -19,5 +19,7 @@ Murillo, J. and García-Navarro, P.,
 *Journal of Computational Physics*, Vol. 231, No. 20, pp. 6861–6906, 2012.  
 https://www.sciencedirect.com/science/article/pii/S0021999112003464
 
-<img src="docs/images/SWRiemann.png" width="50%">
-
+<p align="center">
+  <img src="docs/images/SWRiemann.png" width="45%">
+  <img src="docs/images/OTHER.png" width="45%">
+</p>
