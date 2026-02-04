@@ -2,8 +2,8 @@
 multiPhysicsSWInterFoam is a custom solver built on OpenFOAM, designed to address a wide range of engineering problems in coastal and ocean engineering.
 It enables the flexible coupling of 2D shallow water equations (SWE) and 3D Navier–Stokes (NS) solvers, allowing for the simultaneous simulation of large-scale wave propagation and localized high-resolution interactions.
 
-![FOWT Dinghy](docs/images/FOWTDinghy.png)
-![Wave Flumes](docs/images/waveFlumes.png)
+<img src="docs/images/FOWTDinghy.png" width="50%">
+<img src="docs/images/waveFlumes.png" width="50%">
 
 # components
 ## SWRiemannFoam
