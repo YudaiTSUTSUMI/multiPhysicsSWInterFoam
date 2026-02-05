@@ -1,5 +1,5 @@
 # multiPhysicsSWInterFoam
-This repository provides a set of custom OpenFOAM solvers for coastal and ocean engineering applications.
+This repository provides a set of custom [OpenFOAM®](https://www.openfoam.com/) solvers, the open-source CFD framework developed by OpenCFD Ltd., for coastal and ocean engineering applications.
 
 It includes:
 - **SWRiemannFoam**, a two-dimensional shallow water equation solver based on an approximate Riemann solver;
