@@ -37,8 +37,10 @@ The solver is coupled with external physics engines to model rigid-body motion a
 and is extended to account for internal fluid motion within floating or moving structures.
 
 The integrated models include:
-Bullet Physics: https://github.com/bulletphysics/bullet3
-MoorDyn: https://github.com/FloatingArrayDesign/MoorDyn
+- **Bullet Physics** for rigid-body dynamics and collision handling  
+  https://github.com/bulletphysics/bullet3
+- **MoorDyn** for mooring system dynamics  
+  https://github.com/FloatingArrayDesign/MoorDyn
 
 <p align="center">
   <img src="docs/images/FOWT.png" width="65%">
