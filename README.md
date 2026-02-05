@@ -55,19 +55,21 @@ large-scale, long-period wave propagation and localized high-resolution flow int
 
 The solver integrates the following components:
 
-1) Two-dimensional Shallow Water Equations (SWE):
+1) SWRiemannFoam:
    - Computes large-scale wave propagation over the entire computational domain
 
 2) Two-dimensional Laplace Equation:
    - Solves pressure distributions in narrow micro-scale gaps
 
-3) overInterDyMFoam+ (OIDF):
+3) overInterDyMFoam+:
    - Performs fluid–structure interaction (FSI) simulations using the overset mesh method
    - Models jointed and moored structures, including internal fluid motion
 
-4) olaFlow (based on Higuera et al., 2014):
+4) olaFlow (Higuera et al., 2017):
    - Provides advanced wave generation capabilities
-   - Simulates flows through porous structures such as breakwaters
+   - Simulates wave interaction with porous structures such as breakwaters
+   - Open-source OpenFOAM-based model (DOI: 10.5281/zenodo.1297013)
+   https://github.com/phicau/olaFlow
 
 <p align="center">
   <img src="docs/images/waveFlumes.png" width="100%">
