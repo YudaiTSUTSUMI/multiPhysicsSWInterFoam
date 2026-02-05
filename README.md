@@ -69,7 +69,7 @@ The solver integrates the following components:
    - Provides advanced wave generation capabilities
    - Simulates wave interaction with porous structures such as breakwaters
    - Open-source OpenFOAM-based model (DOI: 10.5281/zenodo.1297013)
-   https://github.com/phicau/olaFlow
+     https://github.com/phicau/olaFlow
 
 <p align="center">
   <img src="docs/images/waveFlumes.png" width="100%">
