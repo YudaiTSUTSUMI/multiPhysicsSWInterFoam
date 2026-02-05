@@ -53,6 +53,22 @@ The solver enables flexible coupling between a two-dimensional shallow water equ
 and a three-dimensional Navier–Stokes (NS) solver, allowing the simultaneous simulation of
 large-scale, long-period wave propagation and localized high-resolution flow interactions.
 
+The solver integrates the following components:
+
+1) Two-dimensional Shallow Water Equations (SWE):
+   - Computes large-scale wave propagation over the entire computational domain
+
+2) Two-dimensional Laplace Equation:
+   - Solves pressure distributions in narrow micro-scale gaps
+
+3) overInterDyMFoam+ (OIDF):
+   - Performs fluid–structure interaction (FSI) simulations using the overset mesh method
+   - Models jointed and moored structures, including internal fluid motion
+
+4) olaFlow (based on Higuera et al., 2014):
+   - Provides advanced wave generation capabilities
+   - Simulates flows through porous structures such as breakwaters
+
 <p align="center">
   <img src="docs/images/waveFlumes.png" width="100%">
 </p>
