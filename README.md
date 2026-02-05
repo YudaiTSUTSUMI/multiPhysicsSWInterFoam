@@ -81,5 +81,5 @@ as well as through dynamically moving interfaces,
 which allow the domains to be connected at arbitrary locations.
 
 <p align="center">
-  <img src="docs/images/arbitraryConnection.png" width="50%">
+  <img src="docs/images/arbitraryConnection.png" width="75%">
 </p>
