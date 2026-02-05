@@ -30,7 +30,13 @@ https://www.sciencedirect.com/science/article/pii/S0021999112003464
 </p>
 
 ## overInterDyMFoam+
-overInterDyMFoam+ is a solver for
+overInterDyMFoam+ is an extended three-dimensional Navier–Stokes solver for offshore and coastal flow simulations,
+featuring enhanced dynamic mesh handling and fluid–structure interaction capabilities.
+
+The solver is coupled with external physics engines to model rigid-body motion and mooring dynamics,
+and is extended to account for internal fluid motion within floating or moving structures.
+
+The integrated models include:
 
 Bullet Physics: https://github.com/bulletphysics/bullet3
 
