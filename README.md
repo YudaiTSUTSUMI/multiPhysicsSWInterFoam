@@ -83,3 +83,11 @@ which allow the domains to be connected at arbitrary locations.
 <p align="center">
   <img src="docs/images/arbitraryConnection.png" width="75%">
 </p>
+
+# compilation
+To compile the solvers, first load the desired OpenFOAM environment,
+then run the following script:
+
+    ./Allwmake
+
+Compilation has been tested and verified with OpenFOAM-v2512.
