@@ -74,3 +74,12 @@ The solver integrates the following numerical components:
 <p align="center">
   <img src="docs/images/waveFlumes.png" width="100%">
 </p>
+
+The two-dimensional and three-dimensional domains can be coupled
+via fixed connections at boundary or internal interfaces,
+as well as through dynamically moving interfaces,
+which allow the domains to be connected at arbitrary locations.
+
+<p align="center">
+  <img src="docs/images/arbitraryConnection.png" width="100%">
+</p>
