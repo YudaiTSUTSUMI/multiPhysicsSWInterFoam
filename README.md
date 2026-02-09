@@ -84,6 +84,7 @@ which allow the domains to be connected at arbitrary locations.
   <img src="docs/images/arbitraryConnection.png" width="75%">
 </p>
 
+### note
 In the current version of this solver, some memory deallocation procedures at the end of execution are not properly handled, which may result in errors such as Bus error or Segmentation fault upon termination.
 These issues are related to the order of pointer releases or improper management of smart pointers, and do not affect the accuracy or correctness of the main simulation results.
 All output data and log files are generated correctly, and the results can be used without any problems.
