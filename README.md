@@ -87,7 +87,8 @@ which allow the domains to be connected at arbitrary locations.
 ### note
 In the current version of this solver, some memory deallocation procedures at the end of execution are not properly handled,
 which may result in errors such as Bus error or Segmentation fault upon termination.
-All output data and log files are generated correctly, and the results can be used without any problems.
+
+However, all output data and log files are generated correctly, and the results can be used without any problems.
 This issue is planned to be addressed in a future update.
 
 # compilation
