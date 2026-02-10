@@ -1,0 +1,9 @@
+#!/bin/bash
+
+NP=8
+
+(cd components && ./prepareBaseMesh && ./prepareTsunamiMesh)
+(cd tsunamiCase && ./run.pre && rm -rf processor* && decomposePar -allRegions)
+(cd tsunamiCase && mpirun -np $NP multiPhysicsSWInterFoam -parallel | tee solve.log)
+
+#reconstructPar -allRegions
