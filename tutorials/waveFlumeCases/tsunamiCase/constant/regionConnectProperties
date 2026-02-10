@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      nestingProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+SWVOFConnectors
+{
+	connect1
+	{
+		mode fixed;
+		
+		SWRegion       flume2D;
+		VOFRegion    wavePaddle;
+		
+		VOFPatch   outlet;		
+	}
+	
+	connect2
+	{
+		mode fixed;
+		
+		SWRegion     flume2D;
+		VOFRegion    cylinderRegion;
+		
+		VOFPatch   inlet;		
+	}	
+}
+
+fluidLaplacianConnectors
+{
+	connect1
+	{
+		VOFRegion  		cylinderRegion;
+		laplacianRegion cylinderBottom;
+		
+		VOFPatch   cylinder;
+		laplacianPatch cylinder;
+	}
+}
+

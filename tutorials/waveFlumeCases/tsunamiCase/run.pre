@@ -1,0 +1,24 @@
+#!/bin/bash
+
+components=(
+    flume2D
+    wavePaddle
+    cylinderRegion
+    cylinderBottom
+)
+
+for comp in "${components[@]}"; do
+    SRC="../components/$comp/constant/polyMesh"
+    DST="constant/$comp/polyMesh"
+
+    rm -rf "$DST"
+    cp -r "$SRC" "$DST"
+
+    echo "polyMesh copied from $SRC to $DST"
+done
+
+rm -fr 0
+cp -r 0.org 0
+
+setSW -region flume2D
+setFields -region wavePaddle

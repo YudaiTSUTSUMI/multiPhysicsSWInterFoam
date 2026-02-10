@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setSWDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+mode dict;
+
+initialh0    0;
+
+slope
+{
+    slope1
+    {
+        startPosition   (-2 0 0);
+        direction       (1 0 0);
+        slope    0.2;        
+        
+        baseh0   0;
+    }
+    
+    slope2
+    {
+        startPosition   (1 0 0);
+        direction       (1 0 0);
+        slope    0;        
+        
+        baseh0   0.6;
+    }
+}
+
+depth     0.6;
+
+
+// ************************************************************************* //
