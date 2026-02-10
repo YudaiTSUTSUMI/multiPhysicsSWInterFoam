@@ -30,7 +30,7 @@ IOdictionary setSWDict
     (
         "setSWDict",
         runTime.system(),
-        runTime,
+        mesh,
         IOobject::MUST_READ,
         IOobject::NO_WRITE
     )
