@@ -1,0 +1,5 @@
+#!/bin/sh
+
+(cd cylinderRegion && blockMesh && surfaceFeatureExtract && snappyHexMesh -overwrite)
+
+(cd cylinderBottom && blockMesh && surfaceFeatureExtract && snappyHexMesh -overwrite)
