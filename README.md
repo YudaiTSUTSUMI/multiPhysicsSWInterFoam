@@ -101,4 +101,4 @@ then run the following script:
 
     ./Allwmake
 
-Compilation has been tested and verified with OpenFOAM-v2512.
+Compilation has been tested and verified with OpenFOAM-v2506,v2512.
