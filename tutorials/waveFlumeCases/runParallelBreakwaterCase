@@ -4,6 +4,6 @@ NP=8
 
 (cd components && ./prepareBaseMesh && ./prepareBreakwaterMesh)
 (cd breakwaterCase && ./run.pre && rm -rf processor* && decomposePar -allRegions)
-(cd breakwaterCase && mpirun -np $NP multiPhysicsSWInterFoam -parallel | tee solve.log)
+(cd breakwaterCase && mpirun -np $NP multiCoastFoam -parallel | tee solve.log)
 
 #reconstructPar -allRegions
