@@ -705,7 +705,7 @@ void Foam::physicsManager::prepareCSV()
         objectData.stateCSV_.reset(new OFstream("Bullet/" + objName + "State.csv"));
         OFstream& stateCSV = *objectData.stateCSV_;
         
-        stateCSV << "Time[s],posX[m],posY[m],posZ[m],CoMX[m],CoMY[m],CoMZ[m],rolX[deg],rolY[deg],rolZ[deg],velX[m/s],velY[m/s],velZ[m/s],omegaX[rad/s],omegaY[rad/s],omegaZ[rad/s]" << endl;
+        stateCSV << "Time[s],posX[m],posY[m],posZ[m],CoMX[m],CoMY[m],CoMZ[m],rolX[deg],rolY[deg],rolZ[deg],velX[m/s],velY[m/s],velZ[m/s],omegaX[rad/s],omegaY[rad/s],omegaZ[rad/s],Ixx[kg*m2],Ixy[kg*m2],Ixz[kg*m2],Iyy[kg*m2],Iyz[kg*m2],Izz[kg*m2]" << endl;
     
         List<outerForceData>& outerForceDataList = objectData.outerForceDataList_;
         List<innerForceData>& innerForceDataList = objectData.innerForceDataList_;
@@ -755,8 +755,11 @@ void Foam::physicsManager::writeCSV()
         const vector vel = objectData.getVelocity();
         const vector omega = objectData.getAngularVelocity();
 
+        const tensor I = objectData.getTotalInertia();
+
         stateCSV << time << "," << pos[0] << "," << pos[1] << "," << pos[2] << "," << CoM[0] << "," << CoM[1] << "," << CoM[2] << "," << rol[0] << "," << rol[1] << "," << rol[2] << ","
-            << vel[0] << "," << vel[1] << "," << vel[2] << "," << omega[0] << "," << omega[1] << "," << omega[2] << endl;
+            << vel[0] << "," << vel[1] << "," << vel[2] << "," << omega[0] << "," << omega[1] << "," << omega[2] << ","
+            << I[0] << "," << I[1] << "," << I[2] << "," << I[4] << "," << I[5] << "," << I[8] << endl;
 
         List<outerForceData>& outerForceDataList = objectData.outerForceDataList_;
         List<innerForceData>& innerForceDataList = objectData.innerForceDataList_;
