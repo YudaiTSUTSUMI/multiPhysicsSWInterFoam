@@ -203,6 +203,11 @@ struct objectData
         
         return P + (Q & CoMLocal);
     }
+
+    tensor getTotalInertia()
+    {
+        return getFromMaster<tensor>([&]() { return bulletBody_->inertiaTotal(); });
+    }
     
     bool getDynamic()
     {
