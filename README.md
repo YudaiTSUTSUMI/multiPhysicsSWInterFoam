@@ -96,8 +96,9 @@ However, all output data and log files are generated correctly, and the results 
 This issue is planned to be addressed in a future update.
 
 # compilation
-To compile the solvers, first load the desired OpenFOAM environment,
-then run the following script:
+To compile multiCoastFoam, the genAbs module provided by olaFlow must be compiled beforehand.
+
+After loading the appropriate OpenFOAM environment, execute:
 
     ./Allwmake
 
