@@ -173,6 +173,10 @@ void Foam::bulletWorld::addBoxBody
     btBody.inertiaSolid()[0] = initialLocalInertia[0];
     btBody.inertiaSolid()[4] = initialLocalInertia[1];
     btBody.inertiaSolid()[8] = initialLocalInertia[2];
+
+	btBody.inertiaTotal()[0] = initialLocalInertia[0];
+    btBody.inertiaTotal()[4] = initialLocalInertia[1];
+    btBody.inertiaTotal()[8] = initialLocalInertia[2];
     
     //add body to world
     dynamicsWorld_->addRigidBody(body);
@@ -232,6 +236,10 @@ void Foam::bulletWorld::addSphereBody
     btBody.inertiaSolid()[0] = initialLocalInertia[0];
     btBody.inertiaSolid()[4] = initialLocalInertia[1];
     btBody.inertiaSolid()[8] = initialLocalInertia[2];
+
+	btBody.inertiaTotal()[0] = initialLocalInertia[0];
+    btBody.inertiaTotal()[4] = initialLocalInertia[1];
+    btBody.inertiaTotal()[8] = initialLocalInertia[2];
     
     //add body to world
     dynamicsWorld_->addRigidBody(body);
@@ -313,6 +321,10 @@ void Foam::bulletWorld::addCylinderBody
     btBody.inertiaSolid()[0] = initialLocalInertia[0];
     btBody.inertiaSolid()[4] = initialLocalInertia[1];
     btBody.inertiaSolid()[8] = initialLocalInertia[2];
+
+	btBody.inertiaTotal()[0] = initialLocalInertia[0];
+    btBody.inertiaTotal()[4] = initialLocalInertia[1];
+    btBody.inertiaTotal()[8] = initialLocalInertia[2];
     
     //add body to world
     dynamicsWorld_->addRigidBody(body);
@@ -374,6 +386,7 @@ void Foam::bulletWorld::addArbitraryFloatingBody
     btBody.massSolid() = initialMass;
     btBody.dynamic() = btBody.massSolid() > 0 ? true : false;
     btBody.inertiaSolid() = setInertiaFoam;
+	btBody.inertiaTotal() = setInertiaFoam;
     
     //add body to world
     dynamicsWorld_->addRigidBody(body);
@@ -484,6 +497,10 @@ void Foam::bulletWorld::addCompoundBody
     btBody.inertiaSolid()[0] = inertia[0];
     btBody.inertiaSolid()[4] = inertia[1];
     btBody.inertiaSolid()[8] = inertia[2];
+
+	btBody.inertiaTotal()[0] = inertia[0];
+    btBody.inertiaTotal()[4] = inertia[1];
+    btBody.inertiaTotal()[8] = inertia[2];
     
     setRigidBodyConditions(dict, body, btBody);
     
@@ -779,6 +796,7 @@ void Foam::bulletWorld::setSolidProperties
     {
         bulletBodies_[i].massSolid() = massSolid;
         bulletBodies_[i].inertiaSolid() = inertiaSolid;
+		bulletBodies_[i].inertiaTotal() = inertiaSolid;
         bulletBodies_[i].CoMSolid() = CoMSolid;
     }
 }
