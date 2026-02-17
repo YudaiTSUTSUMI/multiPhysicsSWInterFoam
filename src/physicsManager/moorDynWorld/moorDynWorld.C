@@ -167,18 +167,21 @@ void Foam::moorDynWorld::writeVTK(const int& outputCounter)
 
         // Writing tension (POINT_DATA)
         mps << "\nPOINT_DATA " << sum(nodesPerLine) << "\n";
-        mps << "SCALARS tension float 1\n";
+        mps << "VECTORS tension_vector float" << endl;
         mps << "LOOKUP_TABLE default\n";
 
         for (int i = 0; i < int(nLines); i++)
         {
             MoorDynLine line = MoorDyn_GetLine(moordyn_, i+1);
-
+    
             for (int p = 0; p < nodesPerLine[i]; p++)
             {
-                double tension = 0.0;
-                MoorDyn_GetLineNodeTen(line, p, &tension);
-                mps << tension << "\n";
+                double tenVec[3] = {0.0, 0.0, 0.0};
+                MoorDyn_GetLineNodeTen(line, p, tenVec);
+
+                mps << (float)tenVec[0] << " " 
+                    << (float)tenVec[1] << " " 
+                    << (float)tenVec[2] << endl;
             }
         }
     }
