@@ -18,5 +18,6 @@ Waves/WaveSpectrum.cpp
 Waves/SpectrumKin.cpp
 Waves/WaveOptions.cpp
 Waves/WaveGrid.cpp
+leanvtk/leanvtk.cpp
 
 LIB = $(FOAM_USER_LIBBIN)/libmoordyn
